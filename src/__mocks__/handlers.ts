@@ -10,16 +10,12 @@ export const handlers = [
           drinks: [
             {
               idDrink: 1,
-              strDrinkThumb:
-                "#/assets/images/thumbs-down.svg",
-              strDrink:
-                "test drink",
-              strInstructions:
-                "test instructions",
-              strIngredient1:
-                "test ingredient"
-            }
-          ]
+              strDrinkThumb: 'src/assets/images/thumbs-down.svg',
+              strDrink: 'test drink',
+              strInstructions: 'test instructions',
+              strIngredient1: 'test ingredient',
+            },
+          ],
         })
       );
     }

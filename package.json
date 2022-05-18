@@ -38,5 +38,8 @@
     "moduleNameMapper": {
       "^assets/(.*)$": "<rootDir>/src/assets/$1"
     }
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
