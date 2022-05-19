@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import { useRetail } from './RetailContext';
+import { TProduct, useRetail } from './RetailContext';
 
-const Product = ({ title, price, image, id }) => {
+const Product = ({ title, price, image, id }: TProduct) => {
   const { getDetails } = useRetail();
+
   return (
     <div className="col-4 mb-2">
       <div onClick={() => getDetails(id)} className="card shadow">
@@ -29,10 +29,4 @@ const Product = ({ title, price, image, id }) => {
   );
 };
 
-Product.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-};
 export default Product;

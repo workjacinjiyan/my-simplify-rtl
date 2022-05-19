@@ -1,18 +1,23 @@
 import * as React from 'react';
-import { useRetail } from './RetailContext';
+import { TProduct, useRetail } from './RetailContext';
 
 const ProductDetail = () => {
   const {
     state: { showProductDetails },
   } = useRetail();
-  return showProductDetails ? (
+
+  function isProduct(obj: {} | TProduct): obj is TProduct {
+    return Object.keys(obj as TProduct).length !== 0;
+  }
+
+  return isProduct(showProductDetails) ? (
     <Details {...showProductDetails} />
   ) : (
     <PlaceholderDetails />
   );
 };
 
-const Details = (props) => {
+const Details = (props: TProduct) => {
   const [quantity, updateQuantity] = React.useState(1);
   const {
     addToCart,
@@ -20,7 +25,9 @@ const Details = (props) => {
     state: { favorites },
   } = useRetail();
 
-  const handleChange = (event) => updateQuantity(event.target.value);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    updateQuantity(+event.target.value);
+
   const handleAddToCart = () => {
     if (quantity >= 1 && quantity <= 10) {
       addToCart(props, quantity);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type Product = {
+export type TProduct = {
   id: string;
   title: string;
   price: string;
@@ -10,10 +10,12 @@ type Product = {
 };
 
 type State = {
-  products: Product[];
-  cartItems: (Partial<Product> & { quantity: number })[];
-  favorites: Product[];
-  showProductDetails: Product | {};
+  products: TProduct[];
+  cartItems: (Pick<TProduct, 'id' | 'price' | 'title'> & {
+    quantity: number;
+  })[];
+  favorites: string[];
+  showProductDetails: TProduct | {};
 };
 
 type Action =
@@ -23,7 +25,7 @@ type Action =
     }
   | {
       type: 'ADD_TO_CART';
-      product: Product;
+      product: TProduct;
       quantity: number;
     }
   | {
@@ -36,7 +38,7 @@ type IRetailContext = [State, React.Dispatch<Action>];
 const RetailContext = React.createContext<IRetailContext | null>(null);
 
 function RetailProvider(props: {
-  products: Product[];
+  products: TProduct[];
   children?: React.ReactNode;
 }) {
   const retailReducer = (state: State, action: Action) => {
@@ -63,7 +65,7 @@ function RetailProvider(props: {
       case 'ADD_TO_FAVORITES':
         return {
           ...state,
-          favorites: [...state.favorites, action.productId] as Product[],
+          favorites: [...state.favorites, action.productId],
         };
 
       default:
@@ -71,7 +73,7 @@ function RetailProvider(props: {
     }
   };
 
-  const initialState = {
+  const initialState: State = {
     products: props.products || [],
     cartItems: [],
     favorites: [],
@@ -83,7 +85,7 @@ function RetailProvider(props: {
     initialState
   );
 
-  const value = [state, dispatch] as [State, React.Dispatch<Action>];
+  const value: [State, React.Dispatch<Action>] = [state, dispatch];
 
   return (
     <RetailContext.Provider value={value} {...props}>
@@ -104,7 +106,7 @@ function useRetail() {
     dispatch({ type: 'SHOW_DETAILS', id: productId });
   };
 
-  const addToCart = (product: Product, quantity: number) => {
+  const addToCart = (product: TProduct, quantity: number) => {
     dispatch({ type: 'ADD_TO_CART', product, quantity: quantity });
   };
 

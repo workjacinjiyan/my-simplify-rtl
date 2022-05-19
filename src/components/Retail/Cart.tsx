@@ -1,21 +1,16 @@
 import { useRetail } from './RetailContext';
 
-interface ICartItem {
-  id: number;
-  quantity: number;
-  title: string;
-  price: number;
-}
 
 const Cart = () => {
   const {
     state: { cartItems },
   } = useRetail();
+
   const getSubTotal = () =>
     cartItems
       .reduce(
-        (total: number, currItem: ICartItem) =>
-          total + currItem.price * currItem.quantity,
+        (total, currItem) =>
+          total + Number(currItem.price) * Number(currItem.quantity),
         0
       )
       .toFixed(2);

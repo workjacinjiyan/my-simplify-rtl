@@ -4,14 +4,11 @@
 import Retail from './components/Retail';
 import { RetailProvider } from './components/Retail/RetailContext';
 import './styles.css';
-
-const retailProducts = {
-  products: [],
-};
+import fakeProducts from './__mocks__/fakeProducts';
 
 export default function App() {
   return (
-    <RetailProvider products={retailProducts}>
+    <RetailProvider products={fakeProducts}>
       {/* <Vote totalGlobalLikes={10} /> */}
       {/* <DrinkSearch /> */}
       <Retail />
