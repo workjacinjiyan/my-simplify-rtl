@@ -4,7 +4,7 @@
 import Retail from './components/Retail';
 import { RetailProvider } from './components/Retail/RetailContext';
 import './styles.css';
-import fakeProducts from './__mocks__/fakeProducts';
+import fakeProducts from './data/Retail/fakeProducts';
 
 export default function App() {
   return (

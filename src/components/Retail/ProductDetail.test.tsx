@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import fakeProducts from 'src/__mocks__/fakeProducts';
+import fakeProducts from 'src/data/Retail/fakeProducts';
 import ProductDetail from './ProductDetail';
 import { RetailProvider } from './RetailContext';
 

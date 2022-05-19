@@ -3,7 +3,7 @@ import { screen, render } from '@testing-library/react';
 import faker from '@faker-js/faker';
 import { RetailProvider } from './RetailContext';
 import Product from './Product';
-import fakeProducts from 'src/__mocks__/fakeProducts';
+import fakeProducts from 'src/data/Retail/fakeProducts';
 
 test.skip('Product, given product properties, renders to screen', () => {
   const product = {
