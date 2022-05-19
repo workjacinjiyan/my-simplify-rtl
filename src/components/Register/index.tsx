@@ -17,10 +17,12 @@ const Register = ({ handleRegister }: IProps) => {
 
   return (
     <main className="m-3 d-flex flex-column">
+      <h1 className="align-self-center text-center">Register here</h1>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
+            className="form-control"
             type="text"
             id="email"
             placeholder="Enter email address"
@@ -34,9 +36,10 @@ const Register = ({ handleRegister }: IProps) => {
             }
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Create Password</label>
           <input
+            className="form-control"
             type="text"
             id="password"
             name="password"

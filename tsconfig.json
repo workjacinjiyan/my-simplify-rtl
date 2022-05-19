@@ -27,6 +27,7 @@
     "node_modules",
     "**/*.spec.tsx?",
     "**/*.test.tsx?",
-    "__mocks__"
+    "__mocks__",
+    "__tests__"
   ]
 }

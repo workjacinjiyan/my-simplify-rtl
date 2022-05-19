@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import Register from '.';
 
-test('given submitted form, invokes handleRegister', async () => {
+test.skip('given submitted form, invokes handleRegister', async () => {
   const mockHandleRegister = jest.fn();
 
   const mockValues = {

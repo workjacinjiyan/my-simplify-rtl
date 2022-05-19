@@ -3,6 +3,7 @@ import likeReducer from './likeReducer';
 
 import thumbsDown from 'src/assets/images/thumbs-down.svg';
 import thumbsUp from 'src/assets/images/thumbs-up.svg';
+import VoteBtn from './VoteBtn';
 
 interface IVoteProps {
   totalGlobalLikes: number;
@@ -16,11 +17,11 @@ const Vote = ({ totalGlobalLikes }: IVoteProps) => {
 
   const { totalLikes, hasVoted, clickedLike, clickedDislike } = state;
 
-  const handleLikeVote = () =>
+  const handleVoteLike = () =>
     dispatch({
       type: 'LIKE',
     });
-  const handleDislikeVote = () =>
+  const handleVoteDislike = () =>
     dispatch({
       type: 'DISLIKE',
     });
@@ -28,33 +29,19 @@ const Vote = ({ totalGlobalLikes }: IVoteProps) => {
   return (
     <div className="d-flex d-inline-flex flex-column h1 m-2">
       <h5>Note: You are not allowed to change your vote once selected!</h5>
-      <button
-        onClick={handleLikeVote}
-        disabled={hasVoted}
-        style={
-          clickedLike
-            ? {
-                background: 'green',
-              }
-            : undefined
-        }
-      >
-        <img src={thumbsUp} alt="thumbs up" />
-      </button>
+      <VoteBtn
+        handleVote={handleVoteLike}
+        hasVoted={hasVoted}
+        imgSrc={thumbsUp}
+        altText="thumbs up"
+      />
       <div>{totalLikes}</div>
-      <button
-        onClick={handleDislikeVote}
-        disabled={hasVoted}
-        style={
-          clickedDislike
-            ? {
-                background: 'red',
-              }
-            : undefined
-        }
-      >
-        <img src={thumbsDown} alt="thumbs down" />
-      </button>
+      <VoteBtn
+        handleVote={handleVoteDislike}
+        hasVoted={hasVoted}
+        imgSrc={thumbsDown}
+        altText="thumbs down"
+      />
     </div>
   );
 };
