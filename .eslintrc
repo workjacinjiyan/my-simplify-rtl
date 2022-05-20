@@ -12,6 +12,7 @@
         "plugin:testing-library/react"
       ],
       "rules": {
+        "testing-library/no-debugging-utils": "warn",
         "testing-library/prefer-screen-queries": "error"
       }
     }
