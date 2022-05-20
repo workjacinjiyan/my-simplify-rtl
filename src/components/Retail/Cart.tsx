@@ -1,10 +1,13 @@
-import { useRetail } from './RetailContext';
+// import { useRetail } from './RetailContext';
 
+import { useAppSelector } from 'src/hooks/redux';
+import { selectCartItems } from './retailSlice';
 
 const Cart = () => {
-  const {
-    state: { cartItems },
-  } = useRetail();
+  // const {
+  //   state: { cartItems },
+  // } = useRetail();
+  const cartItems = useAppSelector(selectCartItems);
 
   const getSubTotal = () =>
     cartItems

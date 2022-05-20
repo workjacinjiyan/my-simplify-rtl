@@ -1,10 +1,13 @@
+import { useAppSelector } from 'src/hooks/redux';
 import Product from './Product';
-import { useRetail } from './RetailContext';
+// import { useRetail } from './RetailContext';
+import { selectProducts } from './retailSlice';
 
 const ProductList = () => {
-  const {
-    state: { products },
-  } = useRetail();
+  // const {
+  //   state: { products },
+  // } = useRetail();
+  const products = useAppSelector(selectProducts);
 
   return (
     <div className="row">

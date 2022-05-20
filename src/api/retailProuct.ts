@@ -1,10 +1,10 @@
-import backPack from 'src/assets/images/backpack.jpg';
-import bracelet from 'src/assets/images/bracelet.jpg';
-import jacket from 'src/assets/images/jacket.jpg';
-import longSleeve from 'src/assets/images/long-sleeve.jpg';
-import shortSleeve from 'src/assets/images/short-sleeve.jpg';
+import backPack from 'src/assets/images/backpack.jpeg';
+import bracelet from 'src/assets/images/bracelet.jpeg';
+import jacket from 'src/assets/images/jacket.jpeg';
+import longSleeve from 'src/assets/images/long-sleeve.jpeg';
+import shortSleeve from 'src/assets/images/short-sleeve.jpeg';
 
-const products = [
+const retailProducts = [
   {
     id: 1,
     title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
@@ -53,4 +53,4 @@ const products = [
   },
 ];
 
-export default products;
+export default retailProducts;

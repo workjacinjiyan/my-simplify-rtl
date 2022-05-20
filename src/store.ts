@@ -1,9 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import retailReducer from 'src/components/Retail/retailSlice';
+import fakeReduxProducts from './data/Retail/fakeReduxProducts';
 
 const store = configureStore({
   reducer: {
     retail: retailReducer,
+  },
+  preloadedState: {
+    retail: {
+      products: fakeReduxProducts,
+      cartItems: [],
+      favorites: [],
+      showProductDetails: {},
+    },
   },
 });
 

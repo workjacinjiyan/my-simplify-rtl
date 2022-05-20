@@ -3,17 +3,17 @@ import { screen, render } from '@testing-library/react';
 import faker from '@faker-js/faker';
 import { RetailProvider } from './RetailContext';
 import Product from './Product';
-import fakeProducts from 'src/data/Retail/fakeProducts';
+import fakeContextProducts from 'src/data/Retail/fakeContextProducts';
 
 test.skip('Product, given product properties, renders to screen', () => {
   const product = {
     title: faker.commerce.productName(),
-    price: faker.commerce.price(),
+    price: Number(faker.commerce.price()),
     image: faker.image.fashion(),
   };
 
   render(
-    <RetailProvider products={fakeProducts}>
+    <RetailProvider products={fakeContextProducts}>
       <Product
         title={product.title}
         price={product.price}

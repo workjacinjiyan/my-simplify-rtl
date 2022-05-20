@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from 'src/store';
 
-import products from 'src/data/Retail/products';
+// import products from 'src/data/Retail/products';
 
-type TProduct = {
+export type TProduct = {
   id: string;
   title: string;
   price: number;
@@ -23,7 +23,7 @@ type SliceState = {
 };
 
 const initialState: SliceState = {
-  products: products,
+  products: [],
   cartItems: [],
   favorites: [],
   showProductDetails: {},

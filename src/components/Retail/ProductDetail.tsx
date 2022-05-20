@@ -1,10 +1,19 @@
 import * as React from 'react';
-import { TProduct, useRetail } from './RetailContext';
+import { useAppDispatch, useAppSelector } from 'src/hooks/redux';
+// import { TProduct, useRetail } from './RetailContext';
+import {
+  addToCart,
+  addToFavorites,
+  selectFavorites,
+  selectShowProductDetails,
+  TProduct,
+} from './retailSlice';
 
 const ProductDetail = () => {
-  const {
-    state: { showProductDetails },
-  } = useRetail();
+  // const {
+  //   state: { showProductDetails },
+  // } = useRetail();
+  const showProductDetails = useAppSelector(selectShowProductDetails);
 
   function isProduct(obj: {} | TProduct): obj is TProduct {
     return Object.keys(obj as TProduct).length !== 0;
@@ -19,25 +28,34 @@ const ProductDetail = () => {
 
 const Details = (props: TProduct) => {
   const [quantity, updateQuantity] = React.useState(1);
-  const {
-    addToCart,
-    addToFavorites,
-    state: { favorites },
-  } = useRetail();
+  // const {
+  //   addToCart,
+  //   addToFavorites,
+  //   state: { favorites },
+  // } = useRetail();
+  const favorites = useAppSelector(selectFavorites);
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     updateQuantity(+event.target.value);
 
   const handleAddToCart = () => {
     if (quantity >= 1 && quantity <= 10) {
-      addToCart(props, quantity);
+      dispatch(
+        addToCart({
+          quantity: quantity,
+          id: props.id,
+          title: props.title,
+          price: props.price,
+        })
+      );
       updateQuantity(1);
     } else {
       updateQuantity(1);
     }
   };
   const handleFavorites = () => {
-    addToFavorites(props.id);
+    dispatch(addToFavorites(props.id));
   };
 
   React.useEffect(() => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export type TProduct = {
+type TProduct = {
   id: string;
   title: string;
   price: string;

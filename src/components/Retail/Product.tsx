@@ -1,11 +1,15 @@
-import { TProduct, useRetail } from './RetailContext';
+// import { TProduct, useRetail } from './RetailContext';
+
+import { useAppDispatch } from 'src/hooks/redux';
+import { TProduct, showDetails } from './retailSlice';
 
 const Product = ({ title, price, image, id }: TProduct) => {
-  const { getDetails } = useRetail();
+  // const { getDetails } = useRetail();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="col-4 mb-2">
-      <div onClick={() => getDetails(id)} className="card shadow">
+      <div onClick={() => dispatch(showDetails(id))} className="card shadow">
         <img
           className="m-auto"
           style={{ width: '12rem', height: '12rem' }}
