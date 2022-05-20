@@ -1,17 +1,12 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import LanguageCheckBox from './components/LanguageCheckbox';
-import MoreInfoPopover from './components/MoreInfoPopover';
-// import LanguageCheckBox from './components/LanguageCheckbox';
-// import LanguageDropdown from './components/LanguageDropdown';
+import Checkout from './components/Checkout';
 
 import './styles.css';
 
 export default function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      {/* <LanguageDropdown /> */}
-      {/* <LanguageCheckBox /> */}
-      <MoreInfoPopover />
+      <Checkout />
     </ErrorBoundary>
   );
 }
